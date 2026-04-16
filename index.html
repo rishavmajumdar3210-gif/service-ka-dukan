@@ -1,0 +1,2201 @@
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Service ka Dukan - Home Service at Your Doorstep</title>
+</head>
+
+<body>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>ServeNest — Home Services at Your Doorstep</title>
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+            <style>
+                :root {
+                    --cream: #FAF7F2;
+                    --warm-white: #FFFDF9;
+                    --charcoal: #1C1C1E;
+                    --dark: #111010;
+                    --accent: #E8611A;
+                    --accent-light: #FF8C42;
+                    --accent-pale: #FFF0E6;
+                    --gold: #C9A84C;
+                    --muted: #6B6660;
+                    --border: #E8E2D9;
+                    --card-bg: #FFFFFF;
+                    --shadow: 0 4px 32px rgba(28, 28, 30, 0.08);
+                    --shadow-hover: 0 12px 48px rgba(232, 97, 26, 0.15);
+                }
+
+                *,
+                *::before,
+                *::after {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                html {
+                    scroll-behavior: smooth;
+                }
+
+                body {
+                    font-family: 'DM Sans', sans-serif;
+                    background: var(--cream);
+                    color: var(--charcoal);
+                    overflow-x: hidden;
+                }
+
+                /* ── NAV ── */
+                nav {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 100;
+                    background: rgba(250, 247, 242, 0.92);
+                    backdrop-filter: blur(16px);
+                    border-bottom: 1px solid var(--border);
+                    padding: 0 5%;
+                    height: 68px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .nav-logo {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.6rem;
+                    font-weight: 900;
+                    color: var(--charcoal);
+                    letter-spacing: -0.5px;
+                }
+
+                .nav-logo span {
+                    color: var(--accent);
+                }
+
+                .nav-links {
+                    display: flex;
+                    gap: 2rem;
+                    list-style: none;
+                }
+
+                .nav-links a {
+                    text-decoration: none;
+                    color: var(--muted);
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    transition: color 0.2s;
+                }
+
+                .nav-links a:hover {
+                    color: var(--accent);
+                }
+
+                .nav-actions {
+                    display: flex;
+                    gap: 0.75rem;
+                    align-items: center;
+                }
+
+                .btn-ghost {
+                    padding: 0.5rem 1.25rem;
+                    border-radius: 8px;
+                    border: 1.5px solid var(--border);
+                    background: transparent;
+                    color: var(--charcoal);
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn-ghost:hover {
+                    border-color: var(--accent);
+                    color: var(--accent);
+                }
+
+                .btn-primary {
+                    padding: 0.55rem 1.4rem;
+                    border-radius: 8px;
+                    border: none;
+                    background: var(--accent);
+                    color: #fff;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    box-shadow: 0 2px 12px rgba(232, 97, 26, 0.3);
+                }
+
+                .btn-primary:hover {
+                    background: var(--accent-light);
+                    transform: translateY(-1px);
+                }
+
+                /* ── HERO ── */
+                .hero {
+                    min-height: 100vh;
+                    padding-top: 68px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    padding-left: 5%;
+                    padding-right: 0;
+                    position: relative;
+                    overflow: hidden;
+                    background: var(--warm-white);
+                }
+
+                .hero-bg-blob {
+                    position: absolute;
+                    top: -100px;
+                    right: -100px;
+                    width: 600px;
+                    height: 600px;
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(232, 97, 26, 0.08) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                .hero-content {
+                    position: relative;
+                    z-index: 2;
+                    max-width: 560px;
+                }
+
+                .hero-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background: var(--accent-pale);
+                    color: var(--accent);
+                    border-radius: 100px;
+                    padding: 0.35rem 1rem;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    letter-spacing: 0.3px;
+                    margin-bottom: 1.5rem;
+                    animation: fadeUp 0.6s ease both;
+                }
+
+                .hero-badge::before {
+                    content: '';
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                    animation: pulse 1.5s ease infinite;
+                }
+
+                @keyframes pulse {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        opacity: 0.5;
+                        transform: scale(1.3);
+                    }
+                }
+
+                .hero h1 {
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(2.8rem, 5vw, 4.2rem);
+                    font-weight: 900;
+                    line-height: 1.1;
+                    letter-spacing: -1.5px;
+                    color: var(--charcoal);
+                    animation: fadeUp 0.7s 0.1s ease both;
+                }
+
+                .hero h1 em {
+                    font-style: italic;
+                    color: var(--accent);
+                    display: block;
+                }
+
+                .hero-sub {
+                    margin-top: 1.25rem;
+                    font-size: 1.05rem;
+                    color: var(--muted);
+                    line-height: 1.65;
+                    font-weight: 400;
+                    max-width: 440px;
+                    animation: fadeUp 0.7s 0.2s ease both;
+                }
+
+                /* Search box */
+                .search-box {
+                    margin-top: 2.25rem;
+                    display: flex;
+                    gap: 0;
+                    border-radius: 14px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 40px rgba(28, 28, 30, 0.12);
+                    animation: fadeUp 0.7s 0.3s ease both;
+                }
+
+                .search-loc {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background: #fff;
+                    padding: 0 1.25rem;
+                    border-right: 1.5px solid var(--border);
+                    font-size: 0.875rem;
+                    color: var(--muted);
+                    white-space: nowrap;
+                    cursor: pointer;
+                    transition: background 0.2s;
+                }
+
+                .search-loc:hover {
+                    background: var(--accent-pale);
+                }
+
+                .search-loc svg {
+                    color: var(--accent);
+                }
+
+                .search-input {
+                    flex: 1;
+                    padding: 1rem 1.25rem;
+                    border: none;
+                    outline: none;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.95rem;
+                    background: #fff;
+                    color: var(--charcoal);
+                }
+
+                .search-input::placeholder {
+                    color: #B5AFA8;
+                }
+
+                .search-btn {
+                    padding: 0 1.75rem;
+                    background: var(--accent);
+                    border: none;
+                    color: #fff;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: background 0.2s;
+                }
+
+                .search-btn:hover {
+                    background: var(--accent-light);
+                }
+
+                /* Quick filters */
+                .quick-filters {
+                    margin-top: 1.25rem;
+                    display: flex;
+                    gap: 0.6rem;
+                    flex-wrap: wrap;
+                    animation: fadeUp 0.7s 0.4s ease both;
+                }
+
+                .qf-chip {
+                    padding: 0.4rem 0.9rem;
+                    border-radius: 100px;
+                    border: 1.5px solid var(--border);
+                    background: #fff;
+                    font-size: 0.8rem;
+                    color: var(--muted);
+                    cursor: pointer;
+                    transition: all 0.18s;
+                    font-weight: 500;
+                }
+
+                .qf-chip:hover {
+                    border-color: var(--accent);
+                    color: var(--accent);
+                    background: var(--accent-pale);
+                }
+
+                /* Hero stats */
+                .hero-stats {
+                    margin-top: 2.5rem;
+                    display: flex;
+                    gap: 2rem;
+                    animation: fadeUp 0.7s 0.5s ease both;
+                }
+
+                .stat-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.15rem;
+                }
+
+                .stat-num {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    color: var(--charcoal);
+                }
+
+                .stat-label {
+                    font-size: 0.78rem;
+                    color: var(--muted);
+                    font-weight: 400;
+                }
+
+                /* Hero image side */
+                .hero-visual {
+                    position: relative;
+                    height: 100vh;
+                    overflow: hidden;
+                }
+
+                .hero-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    animation: zoomIn 1.2s ease both;
+                }
+
+                .hero-img-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to right, var(--warm-white) 0%, transparent 15%);
+                }
+
+                /* Floating card */
+                .floating-card {
+                    position: absolute;
+                    bottom: 60px;
+                    left: -60px;
+                    background: #fff;
+                    border-radius: 16px;
+                    padding: 1rem 1.25rem;
+                    box-shadow: 0 8px 40px rgba(28, 28, 30, 0.15);
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    animation: floatUp 1s 0.8s ease both;
+                    min-width: 200px;
+                }
+
+                .fc-icon {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 12px;
+                    background: var(--accent-pale);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.3rem;
+                    flex-shrink: 0;
+                }
+
+                .fc-text .fc-label {
+                    font-size: 0.75rem;
+                    color: var(--muted);
+                }
+
+                .fc-text .fc-val {
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: var(--charcoal);
+                }
+
+                .floating-card-2 {
+                    position: absolute;
+                    top: 120px;
+                    left: -40px;
+                    background: var(--charcoal);
+                    border-radius: 16px;
+                    padding: 0.85rem 1.25rem;
+                    box-shadow: 0 8px 40px rgba(28, 28, 30, 0.3);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    animation: floatUp 1s 1s ease both;
+                }
+
+                .fc2-stars {
+                    color: var(--gold);
+                    font-size: 0.85rem;
+                    letter-spacing: 1px;
+                }
+
+                .fc2-text {
+                    font-size: 0.82rem;
+                    color: rgba(255, 255, 255, 0.85);
+                }
+
+                .fc2-text strong {
+                    color: #fff;
+                }
+
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(24px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes zoomIn {
+                    from {
+                        transform: scale(1.06);
+                    }
+
+                    to {
+                        transform: scale(1);
+                    }
+                }
+
+                @keyframes floatUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(16px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                /* ── SECTION COMMONS ── */
+                section {
+                    padding: 80px 5%;
+                }
+
+                .section-label {
+                    display: inline-block;
+                    font-size: 0.78rem;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: var(--accent);
+                    margin-bottom: 0.75rem;
+                }
+
+                .section-title {
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(2rem, 3.5vw, 2.75rem);
+                    font-weight: 700;
+                    line-height: 1.2;
+                    letter-spacing: -0.5px;
+                    color: var(--charcoal);
+                }
+
+                .section-sub {
+                    margin-top: 0.75rem;
+                    font-size: 1rem;
+                    color: var(--muted);
+                    font-weight: 400;
+                    max-width: 480px;
+                    line-height: 1.65;
+                }
+
+                /* ── CATEGORIES ── */
+                .categories {
+                    background: var(--cream);
+                }
+
+                .cat-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    margin-bottom: 2.5rem;
+                }
+
+                .view-all {
+                    color: var(--accent);
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    transition: gap 0.2s;
+                }
+
+                .view-all:hover {
+                    gap: 0.6rem;
+                }
+
+                .cat-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                    gap: 1rem;
+                }
+
+                .cat-card {
+                    background: var(--card-bg);
+                    border-radius: 18px;
+                    padding: 1.5rem 1.25rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 0.75rem;
+                    cursor: pointer;
+                    transition: all 0.25s;
+                    border: 1.5px solid transparent;
+                    box-shadow: var(--shadow);
+                }
+
+                .cat-card:hover {
+                    border-color: var(--accent);
+                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-hover);
+                }
+
+                .cat-card.featured {
+                    background: var(--charcoal);
+                }
+
+                .cat-card.featured .cat-name {
+                    color: #fff;
+                }
+
+                .cat-card.featured .cat-count {
+                    color: rgba(255, 255, 255, 0.55);
+                }
+
+                .cat-icon {
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.6rem;
+                    transition: transform 0.2s;
+                }
+
+                .cat-card:hover .cat-icon {
+                    transform: scale(1.1) rotate(-5deg);
+                }
+
+                .cat-name {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: var(--charcoal);
+                }
+
+                .cat-count {
+                    font-size: 0.75rem;
+                    color: var(--muted);
+                }
+
+                /* ── POPULAR SERVICES ── */
+                .popular {
+                    background: var(--warm-white);
+                }
+
+                .tabs {
+                    display: flex;
+                    gap: 0.5rem;
+                    margin-bottom: 2.25rem;
+                    flex-wrap: wrap;
+                }
+
+                .tab {
+                    padding: 0.5rem 1.25rem;
+                    border-radius: 100px;
+                    border: 1.5px solid var(--border);
+                    background: transparent;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    color: var(--muted);
+                    transition: all 0.18s;
+                }
+
+                .tab.active,
+                .tab:hover {
+                    background: var(--charcoal);
+                    color: #fff;
+                    border-color: var(--charcoal);
+                }
+
+                .services-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 1.5rem;
+                }
+
+                .service-card {
+                    background: var(--card-bg);
+                    border-radius: 20px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    box-shadow: var(--shadow);
+                    transition: all 0.28s;
+                    border: 1.5px solid transparent;
+                }
+
+                .service-card:hover {
+                    transform: translateY(-6px);
+                    box-shadow: var(--shadow-hover);
+                    border-color: rgba(232, 97, 26, 0.2);
+                }
+
+                .sc-image {
+                    height: 180px;
+                    background: var(--accent-pale);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 3.5rem;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .sc-image::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to bottom, transparent 50%, rgba(28, 28, 30, 0.06));
+                }
+
+                .sc-badge {
+                    position: absolute;
+                    top: 12px;
+                    left: 12px;
+                    background: var(--accent);
+                    color: #fff;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    padding: 0.2rem 0.6rem;
+                    border-radius: 100px;
+                    letter-spacing: 0.5px;
+                    text-transform: uppercase;
+                }
+
+                .sc-save {
+                    position: absolute;
+                    top: 10px;
+                    right: 12px;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                    transition: transform 0.18s;
+                }
+
+                .sc-save:hover {
+                    transform: scale(1.15);
+                }
+
+                .sc-body {
+                    padding: 1.25rem;
+                }
+
+                .sc-title {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--charcoal);
+                    margin-bottom: 0.25rem;
+                }
+
+                .sc-meta {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.4rem;
+                    font-size: 0.78rem;
+                    color: var(--muted);
+                    margin-bottom: 0.75rem;
+                }
+
+                .sc-rating {
+                    color: var(--gold);
+                    font-weight: 600;
+                }
+
+                .sc-footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-top: 0.75rem;
+                    border-top: 1px solid var(--border);
+                }
+
+                .sc-price {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: var(--charcoal);
+                }
+
+                .sc-price span {
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.75rem;
+                    color: var(--muted);
+                    font-weight: 400;
+                }
+
+                .sc-btn {
+                    padding: 0.5rem 1rem;
+                    border-radius: 8px;
+                    border: none;
+                    background: var(--accent);
+                    color: #fff;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.18s;
+                }
+
+                .sc-btn:hover {
+                    background: var(--accent-light);
+                    transform: scale(1.04);
+                }
+
+                /* ── HOW IT WORKS ── */
+                .how-it-works {
+                    background: var(--charcoal);
+                    color: #fff;
+                }
+
+                .how-it-works .section-title {
+                    color: #fff;
+                }
+
+                .how-it-works .section-sub {
+                    color: rgba(255, 255, 255, 0.55);
+                }
+
+                .how-it-works .section-label {
+                    color: var(--gold);
+                }
+
+                .steps-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                    margin-top: 3rem;
+                    position: relative;
+                }
+
+                .steps-grid::before {
+                    content: '';
+                    position: absolute;
+                    top: 36px;
+                    left: 12.5%;
+                    right: 12.5%;
+                    height: 1px;
+                    background: repeating-linear-gradient(to right, rgba(255, 255, 255, 0.15) 0px, rgba(255, 255, 255, 0.15) 8px,
+                            transparent 8px, transparent 16px);
+                    z-index: 0;
+                }
+
+                .step-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 1rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .step-num {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(255, 255, 255, 0.15);
+                    background: rgba(255, 255, 255, 0.05);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.5rem;
+                    position: relative;
+                }
+
+                .step-num::after {
+                    content: attr(data-num);
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                }
+
+                .step-title {
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                }
+
+                .step-desc {
+                    font-size: 0.82rem;
+                    color: rgba(255, 255, 255, 0.5);
+                    line-height: 1.6;
+                }
+
+                /* ── PROFESSIONALS ── */
+                .professionals {
+                    background: var(--cream);
+                }
+
+                .pros-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                    gap: 1.25rem;
+                    margin-top: 2.5rem;
+                }
+
+                .pro-card {
+                    background: var(--card-bg);
+                    border-radius: 20px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    box-shadow: var(--shadow);
+                    transition: all 0.25s;
+                }
+
+                .pro-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: var(--shadow-hover);
+                }
+
+                .pro-bg {
+                    height: 100px;
+                    background: linear-gradient(135deg, var(--accent-pale), var(--border));
+                }
+
+                .pro-bg-2 {
+                    background: linear-gradient(135deg, #E8F4F8, #D0E8F5);
+                }
+
+                .pro-bg-3 {
+                    background: linear-gradient(135deg, #F0F5E8, #D8EDCC);
+                }
+
+                .pro-bg-4 {
+                    background: linear-gradient(135deg, #F5EAF5, #E8D0EC);
+                }
+
+                .pro-avatar {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    border: 3px solid #fff;
+                    margin: -32px auto 0;
+                    display: block;
+                    font-size: 1.8rem;
+                    text-align: center;
+                    line-height: 58px;
+                    background: var(--accent-pale);
+                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .pro-body {
+                    padding: 0.75rem 1rem 1.1rem;
+                    text-align: center;
+                }
+
+                .pro-name {
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    color: var(--charcoal);
+                }
+
+                .pro-role {
+                    font-size: 0.78rem;
+                    color: var(--muted);
+                    margin-top: 0.15rem;
+                }
+
+                .pro-stats {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.25rem;
+                    margin-top: 0.75rem;
+                    padding-top: 0.75rem;
+                    border-top: 1px solid var(--border);
+                }
+
+                .pro-stat {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.1rem;
+                }
+
+                .pro-stat .v {
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    color: var(--charcoal);
+                }
+
+                .pro-stat .l {
+                    font-size: 0.68rem;
+                    color: var(--muted);
+                }
+
+                /* ── PROMO BANNER ── */
+                .promo-band {
+                    background: var(--accent);
+                    padding: 60px 5%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 2rem;
+                    flex-wrap: wrap;
+                }
+
+                .promo-band h2 {
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(1.6rem, 3vw, 2.5rem);
+                    color: #fff;
+                    line-height: 1.25;
+                    font-weight: 700;
+                }
+
+                .promo-band h2 em {
+                    font-style: italic;
+                    opacity: 0.85;
+                }
+
+                .promo-band p {
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 0.95rem;
+                    margin-top: 0.5rem;
+                    max-width: 400px;
+                }
+
+                .promo-actions {
+                    display: flex;
+                    gap: 0.75rem;
+                }
+
+                .btn-white {
+                    padding: 0.75rem 2rem;
+                    border-radius: 10px;
+                    border: none;
+                    background: #fff;
+                    color: var(--accent);
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    white-space: nowrap;
+                }
+
+                .btn-white:hover {
+                    background: var(--accent-pale);
+                    transform: translateY(-2px);
+                }
+
+                .btn-outline-white {
+                    padding: 0.75rem 2rem;
+                    border-radius: 10px;
+                    border: 2px solid rgba(255, 255, 255, 0.4);
+                    background: transparent;
+                    color: #fff;
+                    font-family: 'DM Sans', sans-serif;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    white-space: nowrap;
+                }
+
+                .btn-outline-white:hover {
+                    border-color: #fff;
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+                /* ── TESTIMONIALS ── */
+                .testimonials {
+                    background: var(--warm-white);
+                }
+
+                .testi-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 1.5rem;
+                    margin-top: 2.5rem;
+                }
+
+                .testi-card {
+                    background: var(--card-bg);
+                    border-radius: 20px;
+                    padding: 1.75rem;
+                    box-shadow: var(--shadow);
+                    transition: all 0.25s;
+                    border: 1.5px solid transparent;
+                    position: relative;
+                }
+
+                .testi-card:hover {
+                    transform: translateY(-4px);
+                    border-color: var(--border);
+                }
+
+                .testi-card::before {
+                    content: '"';
+                    font-family: 'Playfair Display', serif;
+                    font-size: 5rem;
+                    line-height: 1;
+                    color: var(--accent-pale);
+                    position: absolute;
+                    top: 0;
+                    right: 1.5rem;
+                    font-weight: 900;
+                    pointer-events: none;
+                }
+
+                .testi-stars {
+                    color: var(--gold);
+                    font-size: 0.85rem;
+                    letter-spacing: 2px;
+                    margin-bottom: 0.75rem;
+                }
+
+                .testi-text {
+                    font-size: 0.9rem;
+                    color: var(--muted);
+                    line-height: 1.7;
+                }
+
+                .testi-author {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    margin-top: 1.25rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid var(--border);
+                }
+
+                .testi-avatar {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: var(--accent-pale);
+                    font-size: 1.2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .testi-name {
+                    font-weight: 600;
+                    font-size: 0.88rem;
+                    color: var(--charcoal);
+                }
+
+                .testi-service {
+                    font-size: 0.75rem;
+                    color: var(--muted);
+                }
+
+                /* ── APP DOWNLOAD ── */
+                .app-section {
+                    background: linear-gradient(135deg, #1C1C1E 0%, #2D2A26 100%);
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    gap: 3rem;
+                    padding: 80px 5%;
+                }
+
+                .app-section .section-title {
+                    color: #fff;
+                }
+
+                .app-section .section-sub {
+                    color: rgba(255, 255, 255, 0.55);
+                }
+
+                .app-section .section-label {
+                    color: var(--gold);
+                }
+
+                .app-features {
+                    margin-top: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                .app-feat {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.75);
+                }
+
+                .app-feat::before {
+                    content: '✓';
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                }
+
+                .app-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    margin-top: 2rem;
+                }
+
+                .app-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    padding: 0.75rem 1.5rem;
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1.5px solid rgba(255, 255, 255, 0.15);
+                    border-radius: 12px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                .app-btn:hover {
+                    background: rgba(255, 255, 255, 0.14);
+                    border-color: rgba(255, 255, 255, 0.3);
+                }
+
+                .app-btn-icon {
+                    font-size: 1.6rem;
+                    line-height: 1;
+                }
+
+                .app-btn-text {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .app-btn-text small {
+                    font-size: 0.68rem;
+                    opacity: 0.6;
+                    line-height: 1;
+                }
+
+                .app-btn-text strong {
+                    font-size: 0.88rem;
+                    font-weight: 600;
+                }
+
+                .app-mockup {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                }
+
+                .phone-frame {
+                    width: 240px;
+                    height: 480px;
+                    background: #fff;
+                    border-radius: 36px;
+                    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+                    overflow: hidden;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .phone-notch {
+                    height: 24px;
+                    background: #111;
+                    border-radius: 0 0 16px 16px;
+                    width: 100px;
+                    margin: 0 auto;
+                }
+
+                .phone-screen {
+                    flex: 1;
+                    background: var(--accent-pale);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 1rem;
+                    padding: 1rem;
+                }
+
+                .phone-screen-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.5rem;
+                    width: 100%;
+                }
+
+                .phone-mini-card {
+                    background: #fff;
+                    border-radius: 10px;
+                    padding: 0.6rem 0.4rem;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                }
+
+                .phone-mini-card p {
+                    font-size: 0.5rem;
+                    color: var(--muted);
+                    margin-top: 0.2rem;
+                    font-weight: 500;
+                }
+
+                /* ── FOOTER ── */
+                footer {
+                    background: var(--dark);
+                    color: rgba(255, 255, 255, 0.7);
+                    padding: 60px 5% 30px;
+                }
+
+                .footer-top {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr 1fr 1fr;
+                    gap: 3rem;
+                    margin-bottom: 3rem;
+                }
+
+                .footer-logo {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.8rem;
+                    font-weight: 900;
+                    color: #fff;
+                    margin-bottom: 0.75rem;
+                }
+
+                .footer-logo span {
+                    color: var(--accent);
+                }
+
+                .footer-desc {
+                    font-size: 0.85rem;
+                    line-height: 1.7;
+                    max-width: 280px;
+                }
+
+                .footer-socials {
+                    display: flex;
+                    gap: 0.75rem;
+                    margin-top: 1.25rem;
+                }
+
+                .social-btn {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.08);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    text-decoration: none;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .social-btn:hover {
+                    background: var(--accent);
+                    border-color: var(--accent);
+                    color: #fff;
+                }
+
+                .footer-col h4 {
+                    color: #fff;
+                    font-size: 0.88rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .footer-col ul {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.6rem;
+                }
+
+                .footer-col ul a {
+                    text-decoration: none;
+                    color: rgba(255, 255, 255, 0.5);
+                    font-size: 0.82rem;
+                    transition: color 0.18s;
+                }
+
+                .footer-col ul a:hover {
+                    color: var(--accent);
+                }
+
+                .footer-bottom {
+                    border-top: 1px solid rgba(255, 255, 255, 0.08);
+                    padding-top: 1.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.78rem;
+                    color: rgba(255, 255, 255, 0.35);
+                }
+
+                .footer-bottom a {
+                    color: rgba(255, 255, 255, 0.35);
+                    text-decoration: none;
+                }
+
+                .footer-bottom a:hover {
+                    color: var(--accent);
+                }
+
+                /* ── CART FLOATING ── */
+                .cart-float {
+                    position: fixed;
+                    bottom: 28px;
+                    right: 28px;
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 50%;
+                    background: var(--accent);
+                    color: #fff;
+                    border: none;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                    box-shadow: 0 6px 24px rgba(232, 97, 26, 0.4);
+                    transition: all 0.2s;
+                    z-index: 99;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .cart-float:hover {
+                    transform: scale(1.1);
+                }
+
+                .cart-badge {
+                    position: absolute;
+                    top: -4px;
+                    right: -4px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: var(--charcoal);
+                    color: #fff;
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                /* ── TOAST ── */
+                .toast {
+                    position: fixed;
+                    bottom: 100px;
+                    right: 28px;
+                    background: var(--charcoal);
+                    color: #fff;
+                    padding: 0.75rem 1.25rem;
+                    border-radius: 12px;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    transform: translateY(20px);
+                    opacity: 0;
+                    transition: all 0.3s;
+                    pointer-events: none;
+                    z-index: 200;
+                }
+
+                .toast.show {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                /* RESPONSIVE */
+                @media (max-width: 900px) {
+                    .hero {
+                        grid-template-columns: 1fr;
+                        min-height: auto;
+                        padding: 100px 5% 60px;
+                    }
+
+                    .hero-visual {
+                        display: none;
+                    }
+
+                    .steps-grid {
+                        grid-template-columns: 1fr 1fr;
+                    }
+
+                    .steps-grid::before {
+                        display: none;
+                    }
+
+                    .footer-top {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 2rem;
+                    }
+
+                    .app-section {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .app-mockup {
+                        display: none;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .nav-links {
+                        display: none;
+                    }
+
+                    .cat-grid {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+
+                    .steps-grid {
+                        grid-template-columns: 1fr 1fr;
+                    }
+
+                    .footer-top {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .hero-stats {
+                        gap: 1.25rem;
+                    }
+
+                    .search-loc {
+                        display: none;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <!-- NAV -->
+            <nav>
+                <div class="nav-logo">Service<span>ka<span>Dukan</span></div>
+                <ul class="nav-links">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Professionals</a></li>
+                    <li><a href="#">Offers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-ghost">Sign In</button>
+                    <button class="btn-primary">Book Now</button>
+                </div>
+            </nav>
+
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-bg-blob"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">🏠 Trusted by 2M+ homeowners</div>
+                    <h1>Expert Home<br /><em>Services, Delivered.</em></h1>
+                    <p class="hero-sub">From cleaning to repairs — find trusted professionals for every home need. Vetted, insured, and rated by your neighbors.</p>
+
+                    <div class="search-box">
+                        <div class="search-loc">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                <circle cx="12" cy="9" r="2.5" />
+                            </svg>
+                            New Delhi
+                        </div>
+                        <input class="search-input" type="text" placeholder="What service do you need?" id="searchInput" />
+                        <button class="search-btn" onclick="handleSearch()">Search</button>
+                    </div>
+
+                    <div class="quick-filters">
+                        <div class="qf-chip" onclick="filterService(this)">🧹 Deep Clean</div>
+                        <div class="qf-chip" onclick="filterService(this)">🔌 Electrician</div>
+                        <div class="qf-chip" onclick="filterService(this)">🔧 Plumbing</div>
+                        <div class="qf-chip" onclick="filterService(this)">🏠 Real Estate</div>
+                        <div class="qf-chip" onclick="filterService(this)">🪑 Carpentry</div>
+                        <div class="qf-chip" onclick="filterService(this)">❄️ AC Service</div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">50K+</span>
+                            <span class="stat-label">Verified Professionals</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">4.8★</span>
+                            <span class="stat-label">Average Rating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">2M+</span>
+                            <span class="stat-label">Jobs Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- Illustrated hero using CSS art -->
+                    <div style="width:100%;height:100%;background:linear-gradient(160deg,#FFF4EC 0%,#FFE8D4 50%,#FDDFC7 100%);display:flex;align-items:center;justify-content:center;position:relative;">
+                        <!-- Background pattern -->
+                        <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(232,97,26,0.06) 1px,transparent 1px);background-size:32px 32px;"></div>
+                        <!-- Central illustration -->
+                        <div style="position:relative;z-index:2;text-align:center;">
+                            <div style="font-size:7rem;filter:drop-shadow(0 12px 32px rgba(232,97,26,0.2));animation:floatY 3s ease-in-out infinite;">🏠</div>
+                            <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;">
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">🧹</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">Cleaning</div>
+                                </div>
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">🔌</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">Electrical</div>
+                                </div>
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">🔧</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">Plumbing</div>
+                                </div>
+                            </div>
+                            <div style="display:flex;gap:1rem;justify-content:center;margin-top:1rem;">
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">🪑</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">Carpentry</div>
+                                </div>
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">🏢</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">Real Estate</div>
+                                </div>
+                                <div style="background:#fff;border-radius:14px;padding:0.9rem 1.1rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:center;min-width:80px;">
+                                    <div style="font-size:1.8rem;">❄️</div>
+                                    <div style="font-size:0.65rem;color:#6B6660;font-weight:500;margin-top:0.3rem;">AC Repair</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card">
+                        <div class="fc-icon">✅</div>
+                        <div class="fc-text">
+                            <div class="fc-label">Just Booked</div>
+                            <div class="fc-val">Deep Home Clean</div>
+                        </div>
+                    </div>
+                    <div class="floating-card-2">
+                        <div>
+                            <div class="fc2-stars">★★★★★</div>
+                            <div class="fc2-text"><strong>Excellent work!</strong> Very professional.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORIES -->
+            <section class="categories">
+                <div class="cat-header">
+                    <div>
+                        <div class="section-label">Browse by Category</div>
+                        <div class="section-title">All Services</div>
+                    </div>
+                    <a href="#" class="view-all">View all →</a>
+                </div>
+                <div class="cat-grid">
+                    <div class="cat-card featured" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:rgba(232,97,26,0.15);">🧹</div>
+                        <div class="cat-name">Home Cleaning</div>
+                        <div class="cat-count">48 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#FFF3E8;">🔌</div>
+                        <div class="cat-name">Electrical</div>
+                        <div class="cat-count">32 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#E8F4FF;">🔧</div>
+                        <div class="cat-name">Plumbing</div>
+                        <div class="cat-count">27 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#F0FFF0;">🪑</div>
+                        <div class="cat-name">Carpentry</div>
+                        <div class="cat-count">22 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#FFF8E8;">❄️</div>
+                        <div class="cat-name">AC & Appliances</div>
+                        <div class="cat-count">35 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#F5E8FF;">🏢</div>
+                        <div class="cat-name">Real Estate</div>
+                        <div class="cat-count">18 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#FFE8F0;">🎨</div>
+                        <div class="cat-name">Painting</div>
+                        <div class="cat-count">15 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#E8FFF8;">🌿</div>
+                        <div class="cat-name">Gardening</div>
+                        <div class="cat-count">12 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#FFF0E8;">🔐</div>
+                        <div class="cat-name">Security</div>
+                        <div class="cat-count">10 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#E8F0FF;">🚗</div>
+                        <div class="cat-name">Vehicle Care</div>
+                        <div class="cat-count">20 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#F8F0FF;">💆</div>
+                        <div class="cat-name">Wellness</div>
+                        <div class="cat-count">24 services</div>
+                    </div>
+                    <div class="cat-card" onclick="selectCategory(this)">
+                        <div class="cat-icon" style="background:#FFFFF0;">🐾</div>
+                        <div class="cat-name">Pet Care</div>
+                        <div class="cat-count">14 services</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POPULAR SERVICES -->
+            <section class="popular">
+                <div style="margin-bottom:2.25rem;">
+                    <div class="section-label">Top Picks</div>
+                    <div class="section-title">Popular Services</div>
+                    <p class="section-sub">Handpicked services with the highest ratings from verified customers.</p>
+                </div>
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(this)">All</button>
+                    <button class="tab" onclick="switchTab(this)">Cleaning</button>
+                    <button class="tab" onclick="switchTab(this)">Electrical</button>
+                    <button class="tab" onclick="switchTab(this)">Plumbing</button>
+                    <button class="tab" onclick="switchTab(this)">Carpentry</button>
+                    <button class="tab" onclick="switchTab(this)">AC Repair</button>
+                    <button class="tab" onclick="switchTab(this)">Real Estate</button>
+                </div>
+
+                <div class="services-grid" id="servicesGrid">
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#FFF4EC,#FFE0C8);">
+                            🧹<div class="sc-badge">Best Seller</div>
+                            <div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">Full Home Deep Clean</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.9</span> · 3,820 reviews · 3-4 hrs</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹1,299 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'Full Home Deep Clean')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#E8F4FF,#D0E8FF);">
+                            🔌<div class="sc-badge">Popular</div>
+                            <div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">Electrical Repair & Wiring</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.8</span> · 2,140 reviews · 1-2 hrs</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹499 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'Electrical Repair')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#F0FFF0,#D8F0D8);">
+                            🪑<div class="sc-badge">Trending</div>
+                            <div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">Custom Furniture Assembly</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.7</span> · 1,560 reviews · 2-3 hrs</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹799 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'Furniture Assembly')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#FFF8E8,#FFE8B0);">
+                            ❄️<div class="sc-badge">Sale</div>
+                            <div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">AC Service & Gas Refill</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.8</span> · 4,220 reviews · 1-2 hrs</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹649 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'AC Service')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#F5E8FF,#E8D0FF);">
+                            🏢<div class="sc-badge">New</div>
+                            <div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">Property Valuation</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.9</span> · 890 reviews · 2-3 hrs</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹1,999 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'Property Valuation')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="sc-image" style="background:linear-gradient(135deg,#FFE8F0,#FFD0E0);">
+                            🎨<div class="sc-save" onclick="saveService(this)">🤍</div>
+                        </div>
+                        <div class="sc-body">
+                            <div class="sc-title">Interior Wall Painting</div>
+                            <div class="sc-meta"><span class="sc-rating">★ 4.6</span> · 2,380 reviews · 1 day+</div>
+                            <div class="sc-footer">
+                                <div class="sc-price">₹2,499 <span>onwards</span></div>
+                                <button class="sc-btn" onclick="addToCart(this, 'Wall Painting')">Book</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="how-it-works">
+                <div style="text-align:center;max-width:540px;margin:0 auto 0;">
+                    <div class="section-label">Simple Process</div>
+                    <div class="section-title">Book in 3 Easy Steps</div>
+                    <p class="section-sub" style="margin:0.75rem auto 0;">From booking to service completion — quick, transparent, and hassle-free.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-num" data-num="1">🔍</div>
+                        <div class="step-title">Choose Service</div>
+                        <div class="step-desc">Browse 200+ services and pick what fits your home needs perfectly.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num" data-num="2">📅</div>
+                        <div class="step-title">Schedule Time</div>
+                        <div class="step-desc">Pick a date and time slot that works for you — morning, evening, or weekend.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num" data-num="3">🤝</div>
+                        <div class="step-title">Meet Professional</div>
+                        <div class="step-desc">A verified, background-checked expert arrives at your doorstep on time.</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num" data-num="4">⭐</div>
+                        <div class="step-title">Rate & Review</div>
+                        <div class="step-desc">Share feedback and help the community find the best service providers.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFESSIONALS -->
+            <section class="professionals">
+                <div class="cat-header">
+                    <div>
+                        <div class="section-label">Our People</div>
+                        <div class="section-title">Top Rated Professionals</div>
+                    </div>
+                    <a href="#" class="view-all">View all →</a>
+                </div>
+                <div class="pros-grid">
+                    <div class="pro-card">
+                        <div class="pro-bg"></div>
+                        <div class="pro-avatar">👨‍🔧</div>
+                        <div class="pro-body">
+                            <div class="pro-name">Rajesh Kumar</div>
+                            <div class="pro-role">⚡ Master Electrician</div>
+                            <div class="pro-stats">
+                                <div class="pro-stat"><span class="v">4.9★</span><span class="l">Rating</span></div>
+                                <div class="pro-stat"><span class="v">840</span><span class="l">Jobs</span></div>
+                                <div class="pro-stat"><span class="v">6yr</span><span class="l">Exp</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-bg pro-bg-2"></div>
+                        <div class="pro-avatar">👩‍🍳</div>
+                        <div class="pro-body">
+                            <div class="pro-name">Priya Sharma</div>
+                            <div class="pro-role">🧹 Deep Clean Expert</div>
+                            <div class="pro-stats">
+                                <div class="pro-stat"><span class="v">4.8★</span><span class="l">Rating</span></div>
+                                <div class="pro-stat"><span class="v">1,200</span><span class="l">Jobs</span></div>
+                                <div class="pro-stat"><span class="v">4yr</span><span class="l">Exp</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-bg pro-bg-3"></div>
+                        <div class="pro-avatar">👨‍🔨</div>
+                        <div class="pro-body">
+                            <div class="pro-name">Suresh Patel</div>
+                            <div class="pro-role">🪑 Senior Carpenter</div>
+                            <div class="pro-stats">
+                                <div class="pro-stat"><span class="v">4.9★</span><span class="l">Rating</span></div>
+                                <div class="pro-stat"><span class="v">620</span><span class="l">Jobs</span></div>
+                                <div class="pro-stat"><span class="v">8yr</span><span class="l">Exp</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-card">
+                        <div class="pro-bg pro-bg-4"></div>
+                        <div class="pro-avatar">👩‍💼</div>
+                        <div class="pro-body">
+                            <div class="pro-name">Anjali Singh</div>
+                            <div class="pro-role">🏢 Real Estate Advisor</div>
+                            <div class="pro-stats">
+                                <div class="pro-stat"><span class="v">5.0★</span><span class="l">Rating</span></div>
+                                <div class="pro-stat"><span class="v">380</span><span class="l">Jobs</span></div>
+                                <div class="pro-stat"><span class="v">10yr</span><span class="l">Exp</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROMO BAND -->
+            <div class="promo-band">
+                <div>
+                    <h2>First booking? Get <em>₹200 off</em><br />your first service.</h2>
+                    <p>Use code <strong>WELCOME200</strong> at checkout. Valid for new users only.</p>
+                </div>
+                <div class="promo-actions">
+                    <button class="btn-white" onclick="showToast('Code WELCOME200 copied!')">Copy Code</button>
+                    <button class="btn-outline-white">Book Now</button>
+                </div>
+            </div>
+
+            <!-- TESTIMONIALS -->
+            <section class="testimonials">
+                <div style="text-align:center;margin-bottom:0.5rem;">
+                    <div class="section-label">Customer Stories</div>
+                    <div class="section-title">What Our Users Say</div>
+                </div>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">Booked a deep clean for my 2BHK — the team arrived on time, brought all supplies, and left the apartment spotless. Absolutely worth every rupee!</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar">👩</div>
+                            <div>
+                                <div class="testi-name">Meera Iyer</div>
+                                <div class="testi-service">Home Cleaning · Mumbai</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-text">Had an electrical short circuit emergency. Rajesh was at my door within 45 minutes. Fixed everything and explained what went wrong. Highly recommend!</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar">👨</div>
+                            <div>
+                                <div class="testi-name">Arjun Mehta</div>
+                                <div class="testi-service">Electrical · Delhi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★☆</div>
+                        <p class="testi-text">The property valuation service helped me understand my home's true market value. Anjali was incredibly knowledgeable and professional throughout.</p>
+                        <div class="testi-author">
+                            <div class="testi-avatar">👩</div>
+                            <div>
+                                <div class="testi-name">Rekha Kapoor</div>
+                                <div class="testi-service">Real Estate · Bangalore</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APP DOWNLOAD -->
+            <section class="app-section">
+                <div>
+                    <div class="section-label">Mobile App</div>
+                    <div class="section-title">Book Faster on<br />Our App</div>
+                    <p class="section-sub">Manage bookings, track your professional in real-time, and get exclusive app-only offers.</p>
+                    <div class="app-features">
+                        <div class="app-feat">Real-time professional tracking</div>
+                        <div class="app-feat">In-app chat with your expert</div>
+                        <div class="app-feat">Easy reschedule & cancellation</div>
+                        <div class="app-feat">Exclusive app-only deals</div>
+                    </div>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <div class="app-btn-icon">🍎</div>
+                            <div class="app-btn-text">
+                                <small>Download on the</small>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="app-btn">
+                            <div class="app-btn-icon">▶️</div>
+                            <div class="app-btn-text">
+                                <small>Get it on</small>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-mockup">
+                    <div class="phone-frame">
+                        <div style="background:#111;height:8px;width:100%;border-radius:0;"></div>
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div style="background:#fff;width:100%;border-radius:12px;padding:0.8rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+                                <div style="font-size:0.6rem;font-weight:700;color:#1C1C1E;margin-bottom:0.4rem;">Hi Rishav 👋</div>
+                                <div style="font-size:0.5rem;color:#6B6660;">What do you need today?</div>
+                                <div style="background:var(--accent-pale);border-radius:8px;padding:0.4rem 0.6rem;margin-top:0.5rem;font-size:0.5rem;color:var(--accent);font-weight:600;">🔍 Search services...</div>
+                            </div>
+                            <div class="phone-screen-row">
+                                <div class="phone-mini-card">🧹<p>Clean</p>
+                                </div>
+                                <div class="phone-mini-card">🔌<p>Electric</p>
+                                </div>
+                            </div>
+                            <div class="phone-screen-row">
+                                <div class="phone-mini-card">🔧<p>Plumbing</p>
+                                </div>
+                                <div class="phone-mini-card">❄️<p>AC</p>
+                                </div>
+                            </div>
+                            <div style="background:var(--accent);border-radius:10px;padding:0.5rem;width:100%;text-align:center;">
+                                <div style="font-size:0.55rem;color:rgba(255,255,255,0.8);">🎉 First booking</div>
+                                <div style="font-size:0.65rem;color:#fff;font-weight:700;">₹200 OFF with WELCOME200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer>
+                <div class="footer-top">
+                    <div>
+                        <div class="footer-logo">Serve<span>Nest</span></div>
+                        <p class="footer-desc">India's most trusted home services marketplace. Connecting skilled professionals with homeowners across 50+ cities.</p>
+                        <div class="footer-socials">
+                            <a href="#" class="social-btn">𝕏</a>
+                            <a href="#" class="social-btn">f</a>
+                            <a href="#" class="social-btn">in</a>
+                            <a href="#" class="social-btn">📸</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Home Cleaning</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Plumbing</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">AC Repair</a></li>
+                            <li><a href="#">Real Estate</a></li>
+                            <li><a href="#">Painting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Partner with Us</a></li>
+                            <li><a href="#">Franchises</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Centre</a></li>
+                            <li><a href="#">Safety</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>© 2025 ServeNest Pvt Ltd. All rights reserved.</span>
+                    <span>Made with ❤️ in India</span>
+                </div>
+            </footer>
+
+            <!-- CART BUTTON -->
+            <button class="cart-float" onclick="showCart()" id="cartBtn" style="display:none">
+                🛒
+                <div class="cart-badge" id="cartBadge">0</div>
+            </button>
+
+            <!-- TOAST -->
+            <div class="toast" id="toast">✓ <span id="toastMsg"></span></div>
+
+            <style>
+                @keyframes floatY {
+
+                    0%,
+                    100% {
+                        transform: translateY(0);
+                    }
+
+                    50% {
+                        transform: translateY(-14px);
+                    }
+                }
+            </style>
+
+            <script>
+                let cartCount = 0;
+                let cartItems = [];
+
+                function addToCart(btn, name) {
+                    cartCount++;
+                    cartItems.push(name);
+                    document.getElementById('cartBtn').style.display = 'flex';
+                    document.getElementById('cartBadge').textContent = cartCount;
+                    btn.textContent = '✓ Added';
+                    btn.style.background = '#22C55E';
+                    setTimeout(() => {
+                        btn.textContent = 'Book';
+                        btn.style.background = '';
+                    }, 1800);
+                    showToast(name + ' added to cart!');
+                }
+
+                function saveService(btn) {
+                    if (btn.textContent === '🤍') {
+                        btn.textContent = '❤️';
+                        showToast('Saved to wishlist!');
+                    } else {
+                        btn.textContent = '🤍';
+                    }
+                }
+
+                function switchTab(btn) {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    btn.classList.add('active');
+                }
+
+                function selectCategory(card) {
+                    document.querySelectorAll('.cat-card').forEach(c => {
+                        c.classList.remove('featured');
+                        c.style.background = '';
+                        c.querySelector('.cat-name').style.color = '';
+                    });
+                    card.classList.add('featured');
+                    card.style.background = 'var(--charcoal)';
+                    card.querySelector('.cat-name').style.color = '#fff';
+                }
+
+                function filterService(chip) {
+                    document.querySelectorAll('.qf-chip').forEach(c => {
+                        c.style.background = '';
+                        c.style.borderColor = '';
+                        c.style.color = '';
+                    });
+                    chip.style.background = 'var(--accent-pale)';
+                    chip.style.borderColor = 'var(--accent)';
+                    chip.style.color = 'var(--accent)';
+                    document.getElementById('searchInput').value = chip.textContent.trim().replace(/^.\s*/, '');
+                }
+
+                function handleSearch() {
+                    const q = document.getElementById('searchInput').value;
+                    if (q) showToast('Searching for: ' + q);
+                }
+
+                function showCart() {
+                    if (cartItems.length === 0) return;
+                    showToast('Cart: ' + cartItems.slice(-1)[0] + (cartCount > 1 ? ' +' + (cartCount - 1) + ' more' : ''));
+                }
+
+                function showToast(msg) {
+                    const t = document.getElementById('toast');
+                    document.getElementById('toastMsg').textContent = msg;
+                    t.classList.add('show');
+                    setTimeout(() => t.classList.remove('show'), 2800);
+                }
+
+                // Intersection observer for scroll animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            e.target.style.opacity = '1';
+                            e.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                document.querySelectorAll('.service-card, .cat-card, .pro-card, .testi-card, .step-item').forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s, border-color 0.25s';
+                    observer.observe(el);
+                });
+            </script>
+        </body>
+
+        </html>
